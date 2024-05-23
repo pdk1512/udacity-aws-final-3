@@ -6,6 +6,7 @@ RUN apt update -y && apt install build-essential libpq-dev -y
 
 WORKDIR /src
 
+# Copy requirements.txt file from analytics folder to docker src folder
 COPY ./analytics/requirements.txt requirements.txt
 
 # Dependencies are installed during build time in the container itself so we don't have OS mismatch
