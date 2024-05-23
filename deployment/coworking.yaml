@@ -48,6 +48,26 @@ spec:
         - configMapRef:
             name: coworking-configmap
         env:
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: coworking-configmap
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: coworking-configmap
+              key: DB_PORT
+        - name: DB_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: coworking-configmap
+              key: DB_USERNAME
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: coworking-configmap
+              key: DB_NAME
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
