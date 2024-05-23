@@ -16,4 +16,5 @@ RUN pip install Werkzeug==2.2.2
 COPY ./analytics .
 
 # Start the database and Flask application
-CMD export DB_USERNAME=myuser && export DB_PASSWORD=mypassword && export DB_HOST=127.0.0.1 && export DB_NAME=mydatabase && python app.py
+RUN kubectl port-forward svc/postgresql-service 5433:5432 &
+CMD export DB_USERNAME=myuser && export DB_PASSWORD=mypassword && export DB_HOST=127.0.0.1 && export DB_PORT=5433 && export DB_NAME=mydatabase && python app.py
